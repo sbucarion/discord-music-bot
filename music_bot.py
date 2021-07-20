@@ -86,4 +86,4 @@ async def resume(ctx):
 
 
 
-client.run('ODY1MzkyNzk5OTQyNzA1MTky.YPDV2Q.j1z2UJvZkBqG4g2UBTY-s1l2RvE')  
+client.run('TOKEN_ID')  
