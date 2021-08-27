@@ -2,7 +2,7 @@
 
 Commands:
 Command Prefix: $ "\n"
-$join -> Bot joins voice channel of user who made command call
+$join -> Bot joins voice channel of user who made command call                                                                                                                   
 $leave -> Leave voice channel
 
 $play "song" -> Plays any song passed next to the command, must be wrapped in quotes
