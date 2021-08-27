@@ -8,6 +8,8 @@ import youtube_dl
 import os
 import time
 
+
+#Standard youtube_dl download options
 ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [{
@@ -21,11 +23,13 @@ ydl_opts = {
 client = commands.Bot(command_prefix = "$")
 
 
+#Prints ready in terminal when bot can be used in server
 @client.event
 async def on_ready():
     print("ready")
 
 
+#Joins voice channel of user who made call
 @client.command(pass_context = True)
 async def join(ctx):
     if (ctx.author.voice):
@@ -38,7 +42,7 @@ async def join(ctx):
         await ctx.send("Join Voice Channel")
 
 
-
+#Leaves voice channel
 @client.command(pass_context = True)
 async def leave(ctx):
     if (ctx.voice_client):
@@ -48,15 +52,18 @@ async def leave(ctx):
         await ctx.send("Not in Voice Channel")
 
 
+#Plays the requested song
 @client.command(pass_context = True)
 async def play(ctx, arg):
     
+    #Removes previous song file
     if os.path.exists("song.mp3"):
         os.remove("song.mp3")
-
+    
+    #Uses song_url function from bf file to get url
     url = bf.song_url(arg)
     
-
+    #Passes URL into a library that downloads youtube videos
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
 
@@ -65,7 +72,8 @@ async def play(ctx, arg):
             os.rename(file, "song.mp3")
 
     await ctx.send(url)
-
+    
+    #Pass the audio file into FFmpeg to play in voice channel
     source = FFmpegPCMAudio("song.mp3")
     player = voice.play(source)
 
@@ -83,7 +91,6 @@ async def end(ctx):
 @client.command(pass_context = True)
 async def resume(ctx):
     voice.resume()
-
 
 
 client.run('TOKEN_ID')  
