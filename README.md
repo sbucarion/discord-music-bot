@@ -1,9 +1,9 @@
 # discord-music-bot
 
-Commands:
-Command Prefix: $ "\n"
-$join -> Bot joins voice channel of user who made command call                                                                                                                   
-$leave -> Leave voice channel
+Commands: <br />
+Command Prefix: $ <br />
+$join -> Bot joins voice channel of user who made command call <br />                                                                                                           
+$leave -> Leave voice channel 
 
 $play "song" -> Plays any song passed next to the command, must be wrapped in quotes
 $pause -> Pauses song
