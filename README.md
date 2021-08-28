@@ -1,4 +1,8 @@
 # discord-music-bot
+Decription: A discord bot that can run on server. This bot accepts a song request then searches youtube to find the video then plays the song through voice chat
+
+
+Skills: Web Scraping (urllib), Discord Bot API
 
 Commands: <br />
 Command Prefix: $ <br />
